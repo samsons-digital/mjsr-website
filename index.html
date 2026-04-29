@@ -1,0 +1,2283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Malam Jabba Ski Resort — Pakistan's premier mountain destination. Skiing, adventure activities, and luxury hospitality at 2,804m in the Swat Valley, KPK.">
+<meta name="keywords" content="Malam Jabba, ski resort, Pakistan, Swat Valley, KPK, skiing, chairlift, adventure">
+<meta property="og:title" content="Malam Jabba Ski Resort — Pakistan's Premier Mountain Destination">
+<meta property="og:description" content="Year-round adventure at 2,804m in the Swat Valley. Skiing, chairlifts, ziplines and more.">
+<meta property="og:type" content="website">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+<meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+<title>Malam Jabba Ski Resort — Pakistan's Premier Mountain Destination</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   DESIGN SYSTEM — edit these variables to retheme everything
+   ============================================================ */
+:root {
+  /* Palette */
+  --ink:        #0e1a24;
+  --ink-80:     rgba(14,26,36,0.8);
+  --ink-40:     rgba(14,26,36,0.4);
+  --ink-12:     rgba(14,26,36,0.12);
+  --slate:      #2c3e4f;
+  --steel:      #4a6070;
+  --mist:       #b8ccd8;
+  --ice:        #e8f0f5;
+  --snow:       #f4f7f9;
+  --white:      #ffffff;
+  --gold:       #b8892a;
+  --gold-light: #d4a84a;
+  --gold-pale:  #f0e8d4;
+
+  /* Typography */
+  --ff-display: 'Playfair Display', Georgia, serif;
+  --ff-body:    'DM Sans', system-ui, sans-serif;
+
+  /* Spacing */
+  --nav-h: 76px;
+  --section-pad: clamp(4rem, 8vw, 7rem);
+
+  /* Effects */
+  --ease:   cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --shadow-sm: 0 1px 3px rgba(14,26,36,0.08), 0 4px 12px rgba(14,26,36,0.06);
+  --shadow-md: 0 4px 16px rgba(14,26,36,0.1), 0 12px 40px rgba(14,26,36,0.08);
+  --shadow-lg: 0 8px 32px rgba(14,26,36,0.12), 0 24px 64px rgba(14,26,36,0.1);
+  --radius:  4px;
+  --radius-lg: 8px;
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: var(--ff-body); color: var(--ink); background: var(--white); overflow-x: hidden; line-height: 1.6; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: var(--ff-body); cursor: pointer; border: none; background: none; }
+ul, ol { list-style: none; }
+input, select, textarea { font-family: var(--ff-body); }
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  height: var(--nav-h);
+  display: flex; align-items: center;
+  padding: 0 clamp(1.5rem, 4vw, 3rem);
+  transition: background 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+.nav--scrolled {
+  background: rgba(14,26,36,0.96);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+}
+.nav__logo {
+  display: flex; flex-direction: column; gap: 1px;
+  margin-right: auto;
+}
+.nav__logo-name {
+  font-family: var(--ff-display);
+  font-size: 1.25rem; font-weight: 600;
+  color: var(--white); letter-spacing: 0.01em;
+  line-height: 1;
+}
+.nav__logo-tagline {
+  font-size: 0.6rem; font-weight: 400;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+.nav__links {
+  display: flex; align-items: center; gap: 0.15rem;
+}
+.nav__links a {
+  color: rgba(255,255,255,0.72);
+  font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.45rem 0.8rem; border-radius: 2px;
+  transition: color 0.2s;
+}
+.nav__links a:hover { color: var(--white); }
+.nav__links a.is-active { color: var(--gold-light); }
+.nav__cta {
+  margin-left: 1rem;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.6rem 1.4rem; border-radius: var(--radius);
+  transition: background 0.2s, transform 0.2s;
+}
+.nav__cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+.nav__burger {
+  display: none;
+  flex-direction: column; gap: 5px;
+  padding: 6px; margin-left: 1rem;
+}
+.nav__burger span {
+  display: block; width: 22px; height: 1.5px;
+  background: var(--white); border-radius: 1px;
+  transition: transform 0.3s var(--ease), opacity 0.3s;
+}
+.nav__burger.is-open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav__burger.is-open span:nth-child(2) { opacity: 0; }
+.nav__burger.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile drawer */
+.nav__drawer {
+  position: fixed; inset: 0; top: var(--nav-h);
+  background: var(--ink);
+  transform: translateX(100%);
+  transition: transform 0.35s var(--ease);
+  z-index: 800;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem;
+}
+.nav__drawer.is-open { transform: none; }
+.nav__drawer a {
+  font-family: var(--ff-display); font-size: 2rem; font-weight: 500;
+  color: rgba(255,255,255,0.85); letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+.nav__drawer a:hover { color: var(--gold-light); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  position: relative; min-height: 100svh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  overflow: hidden;
+}
+/* Full-bleed photo background — replace gradient with real image */
+.hero__bg {
+  position: absolute; inset: 0; z-index: 0;
+  /* PHOTO SLOT: replace background with:
+     background: url('images/hero-winter.jpg') center / cover no-repeat; */
+  background: linear-gradient(165deg, #0a1820 0%, #1a3248 35%, #0f2535 55%, #162d42 100%);
+}
+/* Subtle grain overlay for texture */
+.hero__bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+}
+/* Gradient vignette */
+.hero__vignette {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(14,26,36,0.15) 0%,
+    rgba(14,26,36,0.05) 40%,
+    rgba(14,26,36,0.55) 80%,
+    rgba(14,26,36,0.85) 100%
+  );
+}
+/* Decorative SVG mountain silhouette */
+.hero__mountain {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+  pointer-events: none;
+}
+.hero__mountain svg { width: 100%; display: block; }
+
+/* Season toggle pill */
+.hero__season-toggle {
+  position: absolute; top: calc(var(--nav-h) + 1.5rem);
+  right: clamp(1.5rem, 4vw, 3rem);
+  z-index: 10;
+  display: flex; background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 100px; padding: 3px;
+  backdrop-filter: blur(8px);
+}
+.hero__season-btn {
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  padding: 0.4rem 1.1rem; border-radius: 100px;
+  transition: background 0.25s, color 0.25s;
+}
+.hero__season-btn.is-active {
+  background: var(--gold); color: var(--white);
+}
+
+/* Hero content */
+.hero__content {
+  position: relative; z-index: 5;
+  padding: 0 clamp(1.5rem, 6vw, 5rem) clamp(3rem, 6vw, 5rem);
+  max-width: 800px;
+}
+.hero__eyebrow {
+  display: inline-flex; align-items: center; gap: 0.75rem;
+  font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 1.25rem;
+}
+.hero__eyebrow::before {
+  content: '';
+  display: block; width: 32px; height: 1px;
+  background: var(--gold-light);
+}
+.hero__title {
+  font-family: var(--ff-display);
+  font-size: clamp(3.2rem, 7.5vw, 6.5rem);
+  font-weight: 400; line-height: 1.04;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+}
+.hero__title em { font-style: italic; color: rgba(255,255,255,0.75); }
+.hero__body {
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  font-weight: 300; color: rgba(255,255,255,0.65);
+  max-width: 480px; line-height: 1.75;
+  margin-bottom: 2.5rem;
+}
+.hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: var(--gold); color: var(--white);
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.9rem 2rem; border-radius: var(--radius);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(184,137,42,0.35);
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(184,137,42,0.4); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: transparent; color: rgba(255,255,255,0.8);
+  font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.9rem 2rem; border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,0.25);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+.btn-ghost:hover { border-color: rgba(255,255,255,0.6); color: var(--white); background: rgba(255,255,255,0.06); }
+
+/* Hero stats bar */
+.hero__stats {
+  position: absolute; right: clamp(1.5rem, 4vw, 3rem); bottom: clamp(3rem, 6vw, 5rem);
+  z-index: 5;
+  display: flex; flex-direction: column; gap: 1.75rem;
+  text-align: right;
+}
+.hero__stat-num {
+  font-family: var(--ff-display);
+  font-size: 2rem; font-weight: 400;
+  color: var(--white); line-height: 1;
+}
+.hero__stat-label {
+  font-size: 0.6rem; font-weight: 400;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-top: 0.2rem;
+}
+.hero__stat-divider {
+  width: 1px; height: 32px;
+  background: rgba(255,255,255,0.12);
+  margin: 0 0 0 auto;
+}
+
+/* Scroll cue */
+.hero__scroll {
+  position: absolute; bottom: 2.5rem; left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+}
+.hero__scroll-line {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.4));
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+@keyframes scrollPulse { 0%,100%{transform:scaleY(1);opacity:1} 50%{transform:scaleY(0.6);opacity:0.4} }
+.hero__scroll-label {
+  font-size: 0.55rem; font-weight: 500;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  writing-mode: vertical-rl;
+}
+
+/* ============================================================
+   SECTION SHARED
+   ============================================================ */
+.section { padding: var(--section-pad) clamp(1.5rem, 6vw, 5rem); }
+.section--dark { background: var(--ink); color: var(--white); }
+.section--light { background: var(--snow); }
+.section--ice { background: var(--ice); }
+.section--white { background: var(--white); }
+
+.section__label {
+  display: flex; align-items: center; gap: 0.75rem;
+  font-size: 0.62rem; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.25rem;
+}
+.section__label::before {
+  content: '';
+  display: block; width: 24px; height: 1px;
+  background: var(--gold);
+}
+.section__title {
+  font-family: var(--ff-display);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 400; line-height: 1.12; letter-spacing: -0.01em;
+}
+.section__title em { font-style: italic; }
+.section__body {
+  font-size: 1rem; font-weight: 300;
+  line-height: 1.8; color: var(--steel);
+  max-width: 560px;
+}
+.section--dark .section__label { color: var(--gold-light); }
+.section--dark .section__label::before { background: var(--gold-light); }
+.section--dark .section__title { color: var(--white); }
+.section--dark .section__body { color: var(--mist); }
+
+/* Inline button variants */
+.btn-ink {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: var(--ink); color: var(--white);
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.85rem 1.85rem; border-radius: var(--radius);
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-ink:hover { background: var(--slate); transform: translateY(-1px); }
+.btn-outline-ink {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: transparent; color: var(--ink);
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.85rem 1.85rem; border-radius: var(--radius);
+  border: 1.5px solid var(--ink);
+  transition: background 0.2s, color 0.2s;
+}
+.btn-outline-ink:hover { background: var(--ink); color: var(--white); }
+.btn-outline-white {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: transparent; color: var(--white);
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.85rem 1.85rem; border-radius: var(--radius);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-outline-white:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+/* Arrow icon substitute (no emoji) */
+.arrow {
+  display: inline-block;
+  width: 14px; height: 14px;
+  position: relative; flex-shrink: 0;
+}
+.arrow::before, .arrow::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+}
+.arrow::before { top: 50%; right: 0; width: 10px; height: 1px; transform: translateY(-50%); }
+.arrow::after {
+  top: 50%; right: 0;
+  width: 5px; height: 5px;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  background: transparent;
+  transform: translateY(-50%) rotate(45deg);
+  transform-origin: right center;
+}
+
+/* ============================================================
+   ABOUT STRIP
+   ============================================================ */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+}
+.about__image {
+  position: relative; overflow: hidden;
+  min-height: 480px;
+}
+/* PHOTO SLOT: replace background with real image */
+.about__image-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #0e2030 0%, #1e4060 100%);
+  /* PHOTO SLOT: background: url('images/resort-aerial.jpg') center/cover no-repeat; */
+  transition: transform 0.6s var(--ease);
+}
+.about__image:hover .about__image-bg { transform: scale(1.03); }
+.about__image-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, transparent 50%, rgba(14,26,36,0.3) 100%);
+}
+.about__badge {
+  position: absolute; bottom: 2.5rem; right: -1px;
+  background: var(--gold);
+  color: var(--white);
+  padding: 1.5rem 2rem;
+}
+.about__badge-num {
+  font-family: var(--ff-display);
+  font-size: 2.8rem; font-weight: 400; line-height: 1;
+}
+.about__badge-text {
+  font-size: 0.6rem; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  opacity: 0.85; margin-top: 0.3rem;
+}
+.about__content {
+  padding: clamp(3rem, 6vw, 5rem) clamp(2.5rem, 5vw, 4.5rem);
+  display: flex; flex-direction: column; justify-content: center;
+  background: var(--ink);
+}
+.about__stats {
+  display: flex; gap: 2.5rem; margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.about__stat-num {
+  font-family: var(--ff-display);
+  font-size: 2rem; font-weight: 400;
+  color: var(--gold-light); line-height: 1;
+}
+.about__stat-label {
+  font-size: 0.6rem; font-weight: 400;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); margin-top: 0.3rem;
+}
+
+/* ============================================================
+   ACTIVITIES
+   ============================================================ */
+.activities__header {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 3.5rem; flex-wrap: wrap; gap: 1.5rem;
+}
+.activities__filter {
+  display: flex; gap: 0.25rem;
+  background: var(--ink-12); border-radius: 100px; padding: 3px;
+}
+.activities__filter-btn {
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--steel); padding: 0.45rem 1.1rem;
+  border-radius: 100px;
+  transition: background 0.2s, color 0.2s;
+}
+.activities__filter-btn.is-active {
+  background: var(--ink); color: var(--white);
+}
+.activities__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--ink-12);
+  border: 1px solid var(--ink-12);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.activity-card {
+  position: relative; overflow: hidden;
+  background: var(--white);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.activity-card[data-hidden] { display: none; }
+.activity-card__image {
+  height: 220px; position: relative; overflow: hidden;
+}
+/* PHOTO SLOT per activity: replace background-color with real image */
+.activity-card__image-bg {
+  position: absolute; inset: 0;
+  transition: transform 0.5s var(--ease);
+}
+.activity-card:hover .activity-card__image-bg { transform: scale(1.06); }
+.activity-card__image-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(14,26,36,0.5) 100%);
+}
+/* Individual activity image placeholders — replace with real photos */
+.act-img--skiing    { background: linear-gradient(160deg, #0e2d45 0%, #2060a0 100%); }
+.act-img--chairlift { background: linear-gradient(160deg, #0a2030 0%, #1a4060 100%); }
+.act-img--zipline   { background: linear-gradient(160deg, #0e2e1a 0%, #1a6035 100%); }
+.act-img--swing     { background: linear-gradient(160deg, #2e1a0e 0%, #703020 100%); }
+.act-img--slingshot { background: linear-gradient(160deg, #1a0e2e 0%, #402070 100%); }
+.act-img--hiking    { background: linear-gradient(160deg, #152e10 0%, #2a6020 100%); }
+
+.activity-card__season-badge {
+  position: absolute; top: 1rem; left: 1rem; z-index: 2;
+  font-size: 0.58rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--white); background: rgba(14,26,36,0.55);
+  padding: 0.22rem 0.65rem; border-radius: 2px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.activity-card__body { padding: 1.5rem; }
+.activity-card__title {
+  font-family: var(--ff-display);
+  font-size: 1.3rem; font-weight: 500;
+  color: var(--ink); margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+.activity-card__desc {
+  font-size: 0.82rem; font-weight: 300;
+  color: var(--steel); line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+.activity-card__footer {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--ice);
+}
+.activity-card__price {
+  font-family: var(--ff-display);
+  font-size: 1.4rem; font-weight: 400; color: var(--gold);
+  line-height: 1;
+}
+.activity-card__price-label {
+  font-size: 0.6rem; font-weight: 400;
+  color: var(--steel); margin-top: 0.2rem;
+  letter-spacing: 0.06em;
+}
+.activity-card__cta {
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink);
+  display: flex; align-items: center; gap: 0.4rem;
+  transition: color 0.2s;
+  padding: 0.6rem 1rem;
+  border: 1.5px solid var(--ink-12);
+  border-radius: var(--radius);
+}
+.activity-card__cta:hover { color: var(--gold); border-color: var(--gold); }
+
+/* ============================================================
+   PRICING TABLE
+   ============================================================ */
+.pricing { position: relative; overflow: hidden; }
+.pricing__bg {
+  position: absolute; inset: 0;
+  /* PHOTO SLOT: background: url('images/mountains-bg.jpg') center/cover; */
+  background: linear-gradient(135deg, #0a1820 0%, #0e2035 50%, #0a1a28 100%);
+  z-index: 0;
+}
+.pricing__content { position: relative; z-index: 1; }
+.pricing__grid {
+  display: grid;
+  grid-template-columns: 200px repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-top: 3rem;
+}
+.pricing__cell {
+  background: rgba(255,255,255,0.03);
+  padding: 1.1rem 1.25rem;
+  font-size: 0.82rem; color: rgba(255,255,255,0.65);
+  font-weight: 300;
+  transition: background 0.2s;
+}
+.pricing__cell:hover { background: rgba(255,255,255,0.06); }
+.pricing__cell--head {
+  background: rgba(255,255,255,0.06);
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  padding: 1rem 1.25rem;
+}
+.pricing__cell--head.is-peak {
+  background: rgba(184,137,42,0.15);
+  color: var(--gold-light);
+  border-top: 2px solid var(--gold);
+}
+.pricing__cell--label {
+  background: rgba(255,255,255,0.04);
+  font-weight: 400; color: var(--white);
+  font-size: 0.85rem;
+}
+.pricing__cell--price {
+  font-family: var(--ff-display);
+  font-size: 1.1rem; font-weight: 400;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+.pricing__cell.is-today {
+  background: rgba(184,137,42,0.08);
+  box-shadow: inset 0 0 0 1px rgba(184,137,42,0.2);
+}
+.pricing__note {
+  font-size: 0.75rem; color: rgba(255,255,255,0.35);
+  margin-top: 1.5rem; line-height: 1.7;
+}
+.pricing__note strong { color: var(--gold-light); font-weight: 500; }
+
+/* Season indicator */
+.pricing__season-indicator {
+  display: inline-flex; align-items: center; gap: 0.75rem;
+  background: rgba(184,137,42,0.12);
+  border: 1px solid rgba(184,137,42,0.25);
+  border-radius: 100px;
+  padding: 0.45rem 1rem; margin-bottom: 2rem;
+  font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--gold-light);
+}
+.pricing__season-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--gold-light);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+
+/* ============================================================
+   PACKAGES
+   ============================================================ */
+.packages__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.package-card {
+  border: 1px solid var(--ice);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s;
+  background: var(--white);
+}
+.package-card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gold);
+  transform: translateY(-4px);
+}
+.package-card--featured {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+.package-card__ribbon {
+  background: var(--gold);
+  color: var(--white);
+  font-size: 0.58rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  text-align: center; padding: 0.45rem;
+}
+.package-card__body { padding: 2rem; }
+.package-card__icon {
+  width: 44px; height: 44px; margin-bottom: 1.25rem;
+  border-radius: var(--radius);
+  background: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+}
+/* SVG icon inside package cards — inline SVG, no emojis */
+.package-card__icon svg { width: 22px; height: 22px; stroke: rgba(255,255,255,0.8); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.package-card__title {
+  font-family: var(--ff-display);
+  font-size: 1.4rem; font-weight: 500;
+  color: var(--ink); margin-bottom: 0.5rem;
+}
+.package-card__includes {
+  font-size: 0.82rem; font-weight: 300;
+  color: var(--steel); line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.package-card__price-row {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0.75rem; margin-bottom: 1.5rem;
+}
+.package-card__price-cell {
+  background: var(--snow);
+  border-radius: var(--radius); padding: 0.85rem;
+  text-align: center;
+}
+.package-card__price-day {
+  font-size: 0.58rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--steel); margin-bottom: 0.3rem;
+}
+.package-card__price-amt {
+  font-family: var(--ff-display);
+  font-size: 1.3rem; font-weight: 400; color: var(--gold);
+}
+.package-card__saving {
+  font-size: 0.72rem; color: #2e7d32; font-weight: 500;
+  margin-bottom: 1.25rem;
+}
+.package-card__book {
+  width: 100%;
+  background: var(--ink); color: var(--white);
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.85rem; border-radius: var(--radius);
+  transition: background 0.2s;
+}
+.package-card__book:hover { background: var(--gold); }
+
+/* ============================================================
+   ACCOMMODATION
+   ============================================================ */
+.accommodation {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0; min-height: 560px;
+}
+.accommodation__card {
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: clamp(2rem, 4vw, 3.5rem);
+  min-height: 480px;
+  cursor: pointer;
+}
+.accommodation__card-bg {
+  position: absolute; inset: 0; z-index: 0;
+  transition: transform 0.6s var(--ease);
+  /* PHOTO SLOT */
+}
+.accommodation__card-bg--pc {
+  background: linear-gradient(160deg, #0a1e30 0%, #1a4060 100%);
+  /* PHOTO SLOT: background: url('images/pc-hotel.jpg') center/cover no-repeat; */
+}
+.accommodation__card-bg--inn {
+  background: linear-gradient(160deg, #0e2216 0%, #1e5030 100%);
+  /* PHOTO SLOT: background: url('images/samsons-inn.jpg') center/cover no-repeat; */
+}
+.accommodation__card:hover .accommodation__card-bg { transform: scale(1.04); }
+.accommodation__card-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(to top, rgba(14,26,36,0.85) 0%, rgba(14,26,36,0.2) 60%, transparent 100%);
+}
+.accommodation__card-content { position: relative; z-index: 2; }
+.accommodation__card-tier {
+  display: inline-block;
+  font-size: 0.58rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold-light);
+  border: 1px solid rgba(184,137,42,0.4);
+  padding: 0.2rem 0.65rem; border-radius: 2px;
+  margin-bottom: 0.75rem;
+}
+.accommodation__card-name {
+  font-family: var(--ff-display);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 400; color: var(--white);
+  margin-bottom: 0.75rem; line-height: 1.2;
+}
+.accommodation__card-desc {
+  font-size: 0.83rem; font-weight: 300;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7; margin-bottom: 1.5rem;
+  max-width: 360px;
+}
+.accommodation__card-features {
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+.accommodation__feature {
+  font-size: 0.6rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 0.28rem 0.7rem; border-radius: 2px;
+}
+
+/* ============================================================
+   GALLERY STRIP
+   ============================================================ */
+.gallery {
+  padding: 0;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 300px 300px;
+  gap: 2px;
+  background: var(--ink);
+}
+.gallery__cell {
+  position: relative; overflow: hidden; cursor: pointer;
+}
+.gallery__cell:first-child { grid-row: 1 / 3; }
+.gallery__cell-bg {
+  position: absolute; inset: 0;
+  transition: transform 0.5s var(--ease);
+  /* PHOTO SLOT per cell */
+}
+.gallery__cell:hover .gallery__cell-bg { transform: scale(1.05); }
+.gallery__cell-overlay {
+  position: absolute; inset: 0;
+  background: rgba(14,26,36,0);
+  transition: background 0.3s;
+}
+.gallery__cell:hover .gallery__cell-overlay { background: rgba(14,26,36,0.2); }
+/* Gallery placeholder gradients — replace with real photos */
+.g1 { background: linear-gradient(160deg, #0a2030 0%, #2060a0 100%); }
+.g2 { background: linear-gradient(160deg, #0e2e1a 0%, #1a6035 100%); }
+.g3 { background: linear-gradient(160deg, #1a1a0e 0%, #605020 100%); }
+.g4 { background: linear-gradient(160deg, #0e0a20 0%, #402080 100%); }
+.g5 { background: linear-gradient(160deg, #0a2020 0%, #106040 100%); }
+.gallery__cta {
+  display: flex; align-items: center; justify-content: center;
+  background: var(--white); padding: 3rem;
+  grid-column: 2 / 4;
+  text-align: center;
+}
+.gallery__cta-inner { max-width: 360px; }
+.gallery__cta-title {
+  font-family: var(--ff-display);
+  font-size: 1.8rem; font-weight: 400;
+  color: var(--ink); margin-bottom: 0.75rem;
+}
+.gallery__cta-sub { font-size: 0.85rem; color: var(--steel); margin-bottom: 1.5rem; line-height: 1.7; }
+
+/* ============================================================
+   CONTACT STRIP
+   ============================================================ */
+.contact-strip {
+  display: grid; grid-template-columns: 1fr 1fr;
+}
+.contact-strip__info {
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
+  background: var(--ink);
+}
+.contact-strip__form-wrap {
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
+  background: var(--snow);
+}
+.contact-detail {
+  display: flex; gap: 1.25rem;
+  align-items: flex-start; margin-bottom: 2rem;
+}
+.contact-detail__icon {
+  width: 38px; height: 38px; flex-shrink: 0;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+}
+.contact-detail__icon svg {
+  width: 16px; height: 16px;
+  stroke: var(--gold-light); fill: none;
+  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+}
+.contact-detail__label {
+  font-size: 0.6rem; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); margin-bottom: 0.2rem;
+}
+.contact-detail__value {
+  font-size: 0.88rem; font-weight: 300;
+  color: rgba(255,255,255,0.75); line-height: 1.6;
+}
+.contact-detail__value a { color: rgba(255,255,255,0.75); transition: color 0.2s; }
+.contact-detail__value a:hover { color: var(--gold-light); }
+.hours-grid {
+  display: grid; grid-template-columns: auto 1fr;
+  gap: 0.25rem 1.5rem;
+  margin-top: 0.35rem;
+  font-size: 0.82rem; font-weight: 300;
+  color: rgba(255,255,255,0.65);
+}
+.hours-grid .day { color: rgba(255,255,255,0.4); }
+
+/* Contact form */
+.form-group { margin-bottom: 1.1rem; }
+.form-label {
+  display: block; font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--steel); margin-bottom: 0.5rem;
+}
+.form-control {
+  width: 100%;
+  border: 1.5px solid var(--ice); border-radius: var(--radius);
+  background: var(--white);
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem; font-weight: 300; color: var(--ink);
+  font-family: var(--ff-body);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-control:focus {
+  outline: none; border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(184,137,42,0.1);
+}
+.form-control--textarea { resize: vertical; min-height: 120px; }
+.form-row-half { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+.form-submit {
+  width: 100%;
+  background: var(--ink); color: var(--white);
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.95rem; border-radius: var(--radius);
+  transition: background 0.2s;
+  margin-top: 0.5rem;
+}
+.form-submit:hover { background: var(--gold); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background: #080f16;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 6vw, 5rem) 2rem;
+}
+.footer__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.footer__brand-name {
+  font-family: var(--ff-display);
+  font-size: 1.4rem; font-weight: 400;
+  color: var(--white); margin-bottom: 0.75rem;
+}
+.footer__brand-desc {
+  font-size: 0.82rem; font-weight: 300;
+  color: rgba(255,255,255,0.4); line-height: 1.75;
+  margin-bottom: 1.75rem;
+}
+.footer__social-row { display: flex; gap: 0.75rem; }
+.footer__social {
+  width: 34px; height: 34px; border-radius: 2px;
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.2s, background 0.2s;
+}
+.footer__social:hover { border-color: var(--gold); background: rgba(184,137,42,0.1); }
+.footer__social svg { width: 14px; height: 14px; fill: rgba(255,255,255,0.5); }
+.footer__col-title {
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.35); margin-bottom: 1.25rem;
+}
+.footer__links { display: flex; flex-direction: column; gap: 0.65rem; }
+.footer__links a {
+  font-size: 0.82rem; font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.2s;
+}
+.footer__links a:hover { color: var(--gold-light); }
+.footer__bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem;
+  font-size: 0.72rem; color: rgba(255,255,255,0.2);
+}
+.footer__legal { display: flex; gap: 1.5rem; }
+.footer__legal a { color: rgba(255,255,255,0.2); transition: color 0.2s; }
+.footer__legal a:hover { color: rgba(255,255,255,0.5); }
+
+/* ============================================================
+   CART FLOAT + PANEL
+   ============================================================ */
+.cart-fab {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 600;
+  width: 54px; height: 54px; border-radius: 50%;
+  background: var(--ink); color: var(--white);
+  box-shadow: var(--shadow-lg);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+.cart-fab:hover { background: var(--gold); transform: scale(1.08); }
+.cart-fab svg { width: 20px; height: 20px; stroke: var(--white); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.cart-badge {
+  position: absolute; top: -3px; right: -3px;
+  background: var(--gold); color: var(--white);
+  font-size: 0.6rem; font-weight: 700;
+  min-width: 18px; height: 18px;
+  border-radius: 9px; padding: 0 4px;
+  display: none; align-items: center; justify-content: center;
+}
+.cart-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(14,26,36,0.5); z-index: 700;
+  backdrop-filter: blur(4px);
+}
+.cart-overlay.is-open { display: block; }
+.cart-panel {
+  position: fixed; top: 0; right: -440px; width: 400px;
+  height: 100dvh; background: var(--white);
+  z-index: 800; transition: right 0.35s var(--ease-out);
+  display: flex; flex-direction: column;
+  box-shadow: -12px 0 48px rgba(14,26,36,0.15);
+}
+.cart-panel.is-open { right: 0; }
+.cart-panel__header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--ice);
+  display: flex; justify-content: space-between; align-items: center;
+  position: sticky; top: 0; background: var(--white); z-index: 1;
+}
+.cart-panel__title {
+  font-family: var(--ff-display);
+  font-size: 1.4rem; font-weight: 500; color: var(--ink);
+}
+.cart-panel__close {
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--ice); color: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; transition: background 0.2s;
+}
+.cart-panel__close:hover { background: #ffcccc; }
+.cart-panel__body { flex: 1; overflow-y: auto; padding: 1.25rem 1.5rem; }
+.cart-empty {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; height: 200px;
+  color: var(--steel); font-size: 0.85rem; font-weight: 300;
+  gap: 0.75rem;
+}
+.cart-empty svg { width: 36px; height: 36px; stroke: var(--mist); fill: none; stroke-width: 1; }
+.cart-line {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  padding: 0.9rem 0; border-bottom: 1px solid var(--ice);
+}
+.cart-line__icon {
+  width: 40px; height: 40px; flex-shrink: 0;
+  border-radius: var(--radius); background: var(--snow);
+  display: flex; align-items: center; justify-content: center;
+}
+.cart-line__icon svg { width: 18px; height: 18px; stroke: var(--steel); fill: none; stroke-width: 1.5; stroke-linecap: round; }
+.cart-line__info { flex: 1; }
+.cart-line__name { font-size: 0.85rem; font-weight: 500; color: var(--ink); }
+.cart-line__qty { font-size: 0.72rem; color: var(--steel); margin-top: 0.15rem; }
+.cart-line__price { font-size: 0.9rem; font-weight: 500; color: var(--gold); white-space: nowrap; }
+.cart-line__remove {
+  font-size: 1rem; color: var(--mist); cursor: pointer;
+  transition: color 0.2s; line-height: 1; padding: 0.2rem;
+  align-self: flex-start;
+}
+.cart-line__remove:hover { color: #c0392b; }
+.cart-panel__footer {
+  padding: 1.5rem; border-top: 1px solid var(--ice); background: var(--snow);
+}
+.cart-total-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 1.25rem;
+}
+.cart-total-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--steel); }
+.cart-total-amount {
+  font-family: var(--ff-display); font-size: 1.6rem; font-weight: 400; color: var(--ink);
+}
+.cart-checkout-fields { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.1rem; }
+.cart-payment-row { display: flex; gap: 0.6rem; margin-bottom: 1rem; }
+.cart-pay-opt {
+  flex: 1; border: 1.5px solid var(--ice);
+  border-radius: var(--radius); padding: 0.7rem 0.5rem;
+  display: flex; flex-direction: column; align-items: center; gap: 0.25rem;
+  cursor: pointer; transition: border-color 0.2s, background 0.2s;
+}
+.cart-pay-opt.is-selected { border-color: var(--gold); background: var(--gold-pale); }
+.cart-pay-opt__logo { font-size: 0.7rem; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+.cart-pay-opt__sub { font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--steel); }
+.cart-checkout-btn {
+  width: 100%;
+  background: var(--gold); color: var(--white);
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 1rem; border-radius: var(--radius);
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 4px 16px rgba(184,137,42,0.3);
+}
+.cart-checkout-btn:hover { background: var(--ink); }
+.cart-security {
+  display: flex; align-items: center; gap: 0.4rem;
+  font-size: 0.62rem; color: var(--steel);
+  margin-top: 0.75rem;
+}
+.cart-security svg { width: 12px; height: 12px; stroke: var(--steel); fill: none; stroke-width: 2; flex-shrink: 0; }
+
+/* Payment modal */
+.pay-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(14,26,36,0.72); z-index: 1000;
+  backdrop-filter: blur(6px);
+  align-items: center; justify-content: center;
+}
+.pay-overlay.is-open { display: flex; }
+.pay-modal {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  width: 90%; max-width: 440px; max-height: 90dvh;
+  overflow-y: auto; padding: 2.5rem;
+  position: relative;
+  box-shadow: 0 32px 80px rgba(14,26,36,0.3);
+  animation: modalIn 0.3s var(--ease-out);
+}
+@keyframes modalIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
+.pay-modal__close {
+  position: absolute; top: 1.25rem; right: 1.25rem;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--ice); color: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; transition: background 0.2s;
+}
+.pay-modal__close:hover { background: #ffcccc; }
+.pay-modal__progress { display: flex; gap: 3px; margin-bottom: 2rem; }
+.pay-modal__prog-step { height: 2px; flex: 1; background: var(--ice); border-radius: 1px; transition: background 0.3s; }
+.pay-modal__prog-step.is-done { background: var(--gold); }
+.modal-step { display: none; }
+.modal-step.is-active { display: block; }
+.modal-title { font-family: var(--ff-display); font-size: 1.7rem; font-weight: 400; color: var(--ink); margin-bottom: 0.4rem; }
+.modal-sub { font-size: 0.82rem; color: var(--steel); margin-bottom: 1.75rem; }
+.modal-summary { background: var(--snow); border-radius: var(--radius); padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+.modal-sum-row { display: flex; justify-content: space-between; font-size: 0.82rem; color: var(--steel); padding: 0.28rem 0; }
+.modal-sum-row.is-total { border-top: 1px solid var(--ice); margin-top: 0.5rem; padding-top: 0.7rem; font-weight: 600; color: var(--ink); font-size: 0.9rem; }
+.modal-pay-opts { display: flex; gap: 0.75rem; margin-bottom: 1.5rem; }
+.modal-pay-opt { flex: 1; border: 2px solid var(--ice); border-radius: var(--radius); padding: 1rem 0.75rem; text-align: center; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
+.modal-pay-opt.is-selected { border-color: var(--gold); background: var(--gold-pale); }
+.modal-pay-opt__name { font-size: 0.7rem; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+.modal-pay-opt__sub { font-size: 0.6rem; color: var(--steel); margin-top: 0.2rem; }
+.modal-proceed {
+  width: 100%; background: var(--gold); color: var(--white);
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.95rem; border-radius: var(--radius); transition: background 0.2s; margin-bottom: 0.65rem;
+}
+.modal-proceed:hover { background: var(--ink); }
+.modal-back { width: 100%; color: var(--steel); font-size: 0.72rem; text-align: center; padding: 0.5rem; transition: color 0.2s; }
+.modal-back:hover { color: var(--ink); }
+.modal-err { color: #c0392b; font-size: 0.75rem; margin-bottom: 0.75rem; display: none; }
+.spinner { width: 44px; height: 44px; border: 2px solid var(--ice); border-top-color: var(--gold); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 1.5rem; }
+@keyframes spin { to{transform:rotate(360deg)} }
+.modal-processing { text-align: center; padding: 2.5rem 0; }
+.modal-success { text-align: center; padding: 2rem 0; }
+.success-check { width: 56px; height: 56px; border-radius: 50%; background: #e8f5e9; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem; }
+.success-check svg { width: 24px; height: 24px; stroke: #2e7d32; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.success-title { font-family: var(--ff-display); font-size: 1.75rem; font-weight: 400; color: var(--ink); margin-bottom: 0.6rem; }
+.success-sub { font-size: 0.85rem; color: var(--steel); line-height: 1.7; }
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 6.5rem; right: 2rem; z-index: 1200;
+  background: var(--ink); color: var(--white);
+  font-size: 0.82rem; font-weight: 400;
+  padding: 0.85rem 1.35rem; border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(12px); opacity: 0;
+  transition: transform 0.3s var(--ease), opacity 0.3s;
+  pointer-events: none; max-width: 280px;
+}
+.toast.is-visible { transform: none; opacity: 1; }
+.toast--success { border-left: 3px solid #2e7d32; }
+.toast--error   { border-left: 3px solid #c0392b; }
+
+/* Scroll reveal */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.65s var(--ease), transform 0.65s var(--ease); }
+.reveal.is-visible { opacity: 1; transform: none; }
+.reveal--delay-1 { transition-delay: 0.1s; }
+.reveal--delay-2 { transition-delay: 0.2s; }
+.reveal--delay-3 { transition-delay: 0.3s; }
+.reveal--delay-4 { transition-delay: 0.4s; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1100px) {
+  .about { grid-template-columns: 1fr; }
+  .about__image { min-height: 340px; }
+  .accommodation { grid-template-columns: 1fr; }
+  .accommodation__card { min-height: 380px; }
+  .footer__grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .gallery__cell:first-child { grid-column: 1/-1; grid-row: auto; }
+  .gallery__cta { grid-column: 1/-1; }
+  .contact-strip { grid-template-columns: 1fr; }
+  .pricing__grid { grid-template-columns: 1fr repeat(2,1fr); }
+  .pricing__grid .pricing__cell--head:nth-child(n+4),
+  .pricing__grid .pricing__cell:nth-child(5n),
+  .pricing__grid .pricing__cell:nth-child(5n-1) { display: none; }
+}
+@media (max-width: 900px) {
+  .activities__grid { grid-template-columns: 1fr 1fr; }
+  .packages__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav__links { display: none; }
+  .nav__cta { display: none; }
+  .nav__burger { display: flex; }
+  .hero__stats { display: none; }
+  .hero__scroll { display: none; }
+  .hero__season-toggle { top: calc(var(--nav-h) + 0.75rem); }
+  .activities__grid { grid-template-columns: 1fr; }
+  .packages__grid { grid-template-columns: 1fr; }
+  .pricing__grid { grid-template-columns: 1fr 1fr; }
+  .cart-panel { width: 100%; right: -100%; }
+  .footer__grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer__bottom { flex-direction: column; text-align: center; }
+  .form-row-half { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .hero__title { font-size: 2.8rem; }
+  .hero__actions { flex-direction: column; }
+  .btn-primary, .btn-ghost { justify-content: center; }
+}
+</style>
+</head>
+
+<body>
+<!-- NAV -->
+<nav class="nav" id="navbar">
+  <a href="index.html" class="nav__logo" aria-label="Malam Jabba Ski Resort">
+    <span class="nav__logo-name">Malam Jabba</span>
+    <span class="nav__logo-tagline">Ski Resort · Est. 1980</span>
+  </a>
+  <ul class="nav__links" role="list">
+    <li><a href="index.html" class="is-active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="activities.html">Activities</a></li>
+    <li><a href="accommodation.html">Stay</a></li>
+    <li><a href="shop.html">Tickets</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="shop.html" class="nav__cta">Book Now</a>
+  <button class="nav__burger" id="burgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE DRAWER -->
+<div class="nav__drawer" id="navDrawer" role="dialog" aria-label="Mobile navigation">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="activities.html">Activities</a>
+  <a href="accommodation.html">Stay</a>
+  <a href="shop.html">Book Tickets</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" aria-label="Welcome to Malam Jabba Ski Resort">
+  <div class="hero__bg">
+    <!--
+      PHOTO SLOT: Replace this div's CSS background with a real photo.
+      In style.css, find .hero__bg and change to:
+      background: url('images/hero-mountain.jpg') center/cover no-repeat;
+      
+      Recommended: Full-bleed dramatic mountain/ski slope photo,
+      landscape orientation, minimum 1920x1080px
+    -->
+  </div>
+  <div class="hero__vignette"></div>
+  <!-- Mountain silhouette decoration -->
+  <div class="hero__mountain" aria-hidden="true">
+    <svg viewBox="0 0 1440 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,180 L0,120 L80,90 L160,115 L240,60 L320,95 L400,40 L480,80 L560,20 L640,65 L720,10 L800,55 L880,30 L960,70 L1040,15 L1120,60 L1200,35 L1280,75 L1360,45 L1440,80 L1440,180Z" fill="rgba(14,26,36,0.5)"/>
+      <path d="M0,180 L0,145 L120,130 L240,150 L360,115 L480,140 L600,110 L720,135 L840,108 L960,130 L1080,118 L1200,138 L1320,122 L1440,140 L1440,180Z" fill="rgba(14,26,36,0.7)"/>
+      <path d="M0,180 L0,165 L180,155 L360,162 L540,150 L720,158 L900,148 L1080,155 L1260,150 L1440,158 L1440,180Z" fill="rgba(14,26,36,0.9)"/>
+      <!-- Snow caps — subtle white fills on peaks -->
+      <path d="M560,20 L543,50 L577,50Z" fill="rgba(232,240,245,0.7)"/>
+      <path d="M720,10 L700,45 L740,45Z" fill="rgba(232,240,245,0.75)"/>
+      <path d="M1040,15 L1022,48 L1058,48Z" fill="rgba(232,240,245,0.65)"/>
+      <path d="M400,40 L382,68 L418,68Z" fill="rgba(232,240,245,0.6)"/>
+      <path d="M880,30 L862,58 L898,58Z" fill="rgba(232,240,245,0.65)"/>
+    </svg>
+  </div>
+
+  <!-- Season toggle -->
+  <div class="hero__season-toggle" role="group" aria-label="Season selector">
+    <button class="hero__season-btn is-active" id="btnWinter" onclick="setSeason('winter')" aria-pressed="true">Winter</button>
+    <button class="hero__season-btn" id="btnSummer" onclick="setSeason('summer')" aria-pressed="false">Summer</button>
+  </div>
+
+  <!-- Hero content -->
+  <div class="hero__content">
+    <div class="hero__eyebrow">Swat Valley, KPK &mdash; 2,804m</div>
+    <h1 class="hero__title">
+      Pakistan's<br>
+      <em>Premier Mountain</em><br>
+      Destination
+    </h1>
+    <p class="hero__body">Year-round adventure, luxury hospitality, and breathtaking alpine scenery at 2,804 metres above sea level in the heart of the Swat Valley.</p>
+    <div class="hero__actions">
+      <a href="shop.html" class="btn-primary">Book Your Experience <span class="arrow"></span></a>
+      <a href="activities.html" class="btn-ghost">Explore Activities</a>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="hero__stats" aria-label="Resort key facts">
+    <div>
+      <div class="hero__stat-num">2,804m</div>
+      <div class="hero__stat-label">Elevation</div>
+    </div>
+    <div class="hero__stat-divider"></div>
+    <div>
+      <div class="hero__stat-num">1980</div>
+      <div class="hero__stat-label">Established</div>
+    </div>
+    <div class="hero__stat-divider"></div>
+    <div>
+      <div class="hero__stat-num">8+</div>
+      <div class="hero__stat-label">Activities</div>
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="hero__scroll" aria-hidden="true">
+    <div class="hero__scroll-line"></div>
+    <span class="hero__scroll-label">Scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div class="about" id="about">
+  <div class="about__image">
+    <div class="about__image-bg">
+      <!--
+        PHOTO SLOT: Replace .about__image-bg background in CSS with:
+        background: url('images/resort-main.jpg') center/cover no-repeat;
+      -->
+    </div>
+    <div class="about__image-overlay"></div>
+    <div class="about__badge">
+      <div class="about__badge-num">45+</div>
+      <div class="about__badge-text">Years of Adventure</div>
+    </div>
+  </div>
+  <div class="about__content">
+    <div class="section__label reveal">Our Story</div>
+    <h2 class="section__title reveal reveal--delay-1">Pakistan's First<br><em>Ski Resort</em></h2>
+    <div style="height:1.25rem"></div>
+    <p class="section__body reveal reveal--delay-2">Established in 1980 and managed by the Samsons Group of Companies, Malam Jabba Ski Resort is Pakistan's first mountain destination. Perched at 2,804 metres in the Swat Valley, we deliver world-class adventure across every season — from winter skiing to summer ziplines.</p>
+    <div class="about__stats reveal reveal--delay-3">
+      <div>
+        <div class="about__stat-num">2,804m</div>
+        <div class="about__stat-label">Peak Elevation</div>
+      </div>
+      <div>
+        <div class="about__stat-num">4</div>
+        <div class="about__stat-label">Seasons Open</div>
+      </div>
+      <div>
+        <div class="about__stat-num">Swat</div>
+        <div class="about__stat-label">Valley, KPK</div>
+      </div>
+    </div>
+    <div style="height:2rem"></div>
+    <a href="about.html" class="btn-outline-white reveal reveal--delay-4">Learn More <span class="arrow"></span></a>
+  </div>
+</div>
+
+<!-- ACTIVITIES -->
+<section class="section section--white" id="activities">
+  <div class="activities__header reveal">
+    <div>
+      <div class="section__label">Adventures Await</div>
+      <h2 class="section__title">What's Your <em>Thrill?</em></h2>
+    </div>
+    <div class="activities__filter" role="group" aria-label="Filter activities by season">
+      <button class="activities__filter-btn is-active" onclick="filterActivities('all',this)">All</button>
+      <button class="activities__filter-btn" onclick="filterActivities('winter',this)">Winter</button>
+      <button class="activities__filter-btn" onclick="filterActivities('summer',this)">Summer</button>
+    </div>
+  </div>
+
+  <div class="activities__grid" id="activitiesGrid">
+
+    <article class="activity-card reveal" data-season="winter">
+      <div class="activity-card__image">
+        <div class="activity-card__image-bg act-img--skiing">
+          <!-- PHOTO SLOT: background: url('images/skiing.jpg') center/cover no-repeat; -->
+        </div>
+        <div class="activity-card__image-overlay"></div>
+        <span class="activity-card__season-badge">Winter Only</span>
+      </div>
+      <div class="activity-card__body">
+        <h3 class="activity-card__title">Skiing &amp; Snowboarding</h3>
+        <p class="activity-card__desc">Groomed slopes at Pakistan's highest ski terrain. Equipment rental, lessons for all levels, and full-day access included.</p>
+        <div class="activity-card__footer">
+          <div>
+            <div class="activity-card__price">PKR 1,400</div>
+            <div class="activity-card__price-label">From — weekday rate</div>
+          </div>
+          <button class="activity-card__cta" onclick="quickAdd('Skiing &amp; Snowboarding',1400,'ski')">Book <span class="arrow"></span></button>
+        </div>
+      </div>
+    </article>
+
+    <article class="activity-card reveal reveal--delay-1" data-season="all">
+      <div class="activity-card__image">
+        <div class="activity-card__image-bg act-img--chairlift">
+          <!-- PHOTO SLOT: url('images/chairlift.jpg') -->
+        </div>
+        <div class="activity-card__image-overlay"></div>
+        <span class="activity-card__season-badge">All Season</span>
+      </div>
+      <div class="activity-card__body">
+        <h3 class="activity-card__title">Chairlift Ride</h3>
+        <p class="activity-card__desc">Ascend to the summit in our scenic chairlift. Panoramic views of the Hindu Kush and the Swat Valley stretching below.</p>
+        <div class="activity-card__footer">
+          <div>
+            <div class="activity-card__price">PKR 900</div>
+            <div class="activity-card__price-label">From — weekday rate</div>
+          </div>
+          <button class="activity-card__cta" onclick="quickAdd('Chairlift Ride',900,'lift')">Book <span class="arrow"></span></button>
+        </div>
+      </div>
+    </article>
+
+    <article class="activity-card reveal reveal--delay-2" data-season="summer">
+      <div class="activity-card__image">
+        <div class="activity-card__image-bg act-img--zipline">
+          <!-- PHOTO SLOT: url('images/zipline.jpg') -->
+        </div>
+        <div class="activity-card__image-overlay"></div>
+        <span class="activity-card__season-badge">Summer</span>
+      </div>
+      <div class="activity-card__body">
+        <h3 class="activity-card__title">Zipline</h3>
+        <p class="activity-card__desc">Launch across the valley at altitude. High-speed, fully harnessed, and completely unforgettable. Minimum age 10.</p>
+        <div class="activity-card__footer">
+          <div>
+            <div class="activity-card__price">PKR 2,000</div>
+            <div class="activity-card__price-label">From — weekday rate</div>
+          </div>
+          <button class="activity-card__cta" onclick="quickAdd('Zipline',2000,'zip')">Book <span class="arrow"></span></button>
+        </div>
+      </div>
+    </article>
+
+    <article class="activity-card reveal" data-season="summer">
+      <div class="activity-card__image">
+        <div class="activity-card__image-bg act-img--swing">
+          <!-- PHOTO SLOT: url('images/giant-swing.jpg') -->
+        </div>
+        <div class="activity-card__image-overlay"></div>
+        <span class="activity-card__season-badge">Summer</span>
+      </div>
+      <div class="activity-card__body">
+        <h3 class="activity-card__title">Giant Swing</h3>
+        <p class="activity-card__desc">Harnessed pendulum swing at mountain altitude. Pure adrenaline with a safety-first approach. Minimum age 12.</p>
+        <div class="activity-card__footer">
+          <div>
+            <div class="activity-card__price">PKR 2,000</div>
+            <div class="activity-card__price-label">From — weekday rate</div>
+          </div>
+          <button class="activity-card__cta" onclick="quickAdd('Giant Swing',2000,'swing')">Book <span class="arrow"></span></button>
+        </div>
+      </div>
+    </article>
+
+    <article class="activity-card reveal reveal--delay-1" data-season="summer">
+      <div class="activity-card__image">
+        <div class="activity-card__image-bg act-img--slingshot">
+          <!-- PHOTO SLOT: url('images/slingshot.jpg') -->
+        </div>
+        <div class="activity-card__image-overlay"></div>
+        <span class="activity-card__season-badge">Summer</span>
+      </div>
+      <div class="activity-card__body">
+        <h3 class="activity-card__title">Sling Shot</h3>
+        <p class="activity-card__desc">Pakistan's most intense ride at altitude. A vertical launch that defies gravity. Minimum age 14, maximum weight 100kg.</p>
+        <div class="activity-card__footer">
+          <div>
+            <div class="activity-card__price">PKR 5,000</div>
+            <div class="activity-card__price-label">From — weekday rate</div>
+          </div>
+          <button class="activity-card__cta" onclick="quickAdd('Sling Shot',5000,'sling')">Book <span class="arrow"></span></button>
+        </div>
+      </div>
+    </article>
+
+    <article class="activity-card reveal reveal--delay-2" data-season="summer">
+      <div class="activity-card__image">
+        <div class="activity-card__image-bg act-img--hiking">
+          <!-- PHOTO SLOT: url('images/hiking.jpg') -->
+        </div>
+        <div class="activity-card__image-overlay"></div>
+        <span class="activity-card__season-badge">Summer</span>
+      </div>
+      <div class="activity-card__body">
+        <h3 class="activity-card__title">Hiking Trails</h3>
+        <p class="activity-card__desc">Guided trails through ancient pine forest and alpine meadow. Multiple routes for families, solo trekkers, and experienced hikers.</p>
+        <div class="activity-card__footer">
+          <div>
+            <div class="activity-card__price">PKR 600</div>
+            <div class="activity-card__price-label">From — weekday rate</div>
+          </div>
+          <button class="activity-card__cta" onclick="quickAdd('Hiking Trail',600,'hike')">Book <span class="arrow"></span></button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+  <div style="margin-top:2.5rem; text-align:center;">
+    <a href="activities.html" class="btn-outline-ink">View Full Activity Guide &amp; Prices <span class="arrow"></span></a>
+  </div>
+</section>
+
+<!-- PRICING TABLE -->
+<section class="section pricing" id="pricing">
+  <div class="pricing__bg"></div>
+  <div class="pricing__content">
+    <div class="section__label reveal">Transparent Pricing</div>
+    <h2 class="section__title reveal reveal--delay-1">Simple, Honest <em>Rates</em></h2>
+    <div style="height:0.75rem"></div>
+    <p class="section__body reveal reveal--delay-2">Weekday rates are discounted 35&ndash;40% to make Malam Jabba accessible to all KPK families. Weekend rates reflect peak demand. All prices in PKR.</p>
+
+    <div class="pricing__season-indicator reveal reveal--delay-3" id="seasonIndicator">
+      <div class="pricing__season-dot"></div>
+      <span id="seasonIndicatorText">Detecting today's rate...</span>
+    </div>
+
+    <div class="pricing__grid reveal" id="pricingGrid">
+      <!-- Header row -->
+      <div class="pricing__cell pricing__cell--head">Activity</div>
+      <div class="pricing__cell pricing__cell--head">Weekday</div>
+      <div class="pricing__cell pricing__cell--head">Weekend</div>
+      <div class="pricing__cell pricing__cell--head is-peak">Peak Weekday</div>
+      <div class="pricing__cell pricing__cell--head is-peak">Peak Weekend</div>
+      <!-- Data rows populated by JS -->
+    </div>
+    <p class="pricing__note reveal">
+      <strong>Peak Season:</strong> Dec 15 &ndash; Feb 28 (Winter Peak) and Jun 1 &ndash; Aug 31 (Summer Peak).
+      Weekday = Monday to Thursday. Weekend = Friday and Saturday. Sunday at weekday rate.
+    </p>
+    <div style="margin-top:2.5rem;">
+      <a href="shop.html" class="btn-outline-white reveal">Buy Tickets Online <span class="arrow"></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="section section--white" id="packages">
+  <div class="reveal">
+    <div class="section__label">Best Value</div>
+    <h2 class="section__title">Activity <em>Packages</em></h2>
+    <p class="section__body" style="margin-top:0.75rem;">Bundle activities and save. Designed for families, groups, and thrill-seekers who want maximum value from their visit.</p>
+  </div>
+  <div class="packages__grid">
+
+    <div class="package-card reveal">
+      <div class="package-card__body">
+        <div class="package-card__icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3 class="package-card__title">Local Day Out</h3>
+        <p class="package-card__includes">Resort Entry + Chairlift. The complete Malam Jabba experience at one accessible price point. Ideal for first-time visitors.</p>
+        <div class="package-card__price-row">
+          <div class="package-card__price-cell">
+            <div class="package-card__price-day">Weekday</div>
+            <div class="package-card__price-amt">PKR 2,200</div>
+          </div>
+          <div class="package-card__price-cell">
+            <div class="package-card__price-day">Weekend</div>
+            <div class="package-card__price-amt">PKR 2,800</div>
+          </div>
+        </div>
+        <div class="package-card__saving">Save approx. PKR 400 vs individual</div>
+        <button class="package-card__book" onclick="quickAdd('Local Day Out Package',2200,'pkg')">Book This Package</button>
+      </div>
+    </div>
+
+    <div class="package-card package-card--featured reveal reveal--delay-1">
+      <div class="package-card__ribbon">Most Popular</div>
+      <div class="package-card__body">
+        <div class="package-card__icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3 class="package-card__title">Family Essential</h3>
+        <p class="package-card__includes">Resort Entry + Chairlift + Food Voucher. A complete day for the whole family, including a meal. The best value on the mountain.</p>
+        <div class="package-card__price-row">
+          <div class="package-card__price-cell">
+            <div class="package-card__price-day">Weekday</div>
+            <div class="package-card__price-amt">PKR 3,500</div>
+          </div>
+          <div class="package-card__price-cell">
+            <div class="package-card__price-day">Weekend</div>
+            <div class="package-card__price-amt">PKR 4,500</div>
+          </div>
+        </div>
+        <div class="package-card__saving">Save approx. PKR 600 vs individual</div>
+        <button class="package-card__book" onclick="quickAdd('Family Essential Package',3500,'pkg')">Book This Package</button>
+      </div>
+    </div>
+
+    <div class="package-card reveal reveal--delay-2">
+      <div class="package-card__body">
+        <div class="package-card__icon">
+          <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        </div>
+        <h3 class="package-card__title">Thrill Seeker</h3>
+        <p class="package-card__includes">Resort Entry + Zipline + Giant Swing. Maximum adrenaline, minimum compromise. For visitors who want the full high-altitude rush.</p>
+        <div class="package-card__price-row">
+          <div class="package-card__price-cell">
+            <div class="package-card__price-day">Weekday</div>
+            <div class="package-card__price-amt">PKR 5,500</div>
+          </div>
+          <div class="package-card__price-cell">
+            <div class="package-card__price-day">Weekend</div>
+            <div class="package-card__price-amt">PKR 7,200</div>
+          </div>
+        </div>
+        <div class="package-card__saving">Save approx. PKR 900 vs individual</div>
+        <button class="package-card__book" onclick="quickAdd('Thrill Seeker Package',5500,'pkg')">Book This Package</button>
+      </div>
+    </div>
+
+  </div>
+  <div style="text-align:center;margin-top:2.5rem;">
+    <a href="shop.html" class="btn-outline-ink">View All Packages &amp; Tickets <span class="arrow"></span></a>
+  </div>
+</section>
+
+<!-- ACCOMMODATION -->
+<div class="accommodation" id="accommodation">
+  <div class="accommodation__card">
+    <div class="accommodation__card-bg accommodation__card-bg--pc">
+      <!-- PHOTO SLOT: url('images/pc-hotel.jpg') center/cover no-repeat -->
+    </div>
+    <div class="accommodation__card-overlay"></div>
+    <div class="accommodation__card-content reveal">
+      <span class="accommodation__card-tier">5-Star Luxury</span>
+      <h3 class="accommodation__card-name">Pearl Continental<br>Malam Jabba</h3>
+      <p class="accommodation__card-desc">Pakistan's highest-altitude luxury hotel. World-class amenities, gourmet dining, and uninterrupted mountain views — directly at the resort.</p>
+      <div class="accommodation__card-features">
+        <span class="accommodation__feature">Premium Rooms</span>
+        <span class="accommodation__feature">Fine Dining</span>
+        <span class="accommodation__feature">Spa &amp; Pool</span>
+        <span class="accommodation__feature">Mountain Views</span>
+      </div>
+      <a href="accommodation.html" class="btn-outline-white">View Details <span class="arrow"></span></a>
+    </div>
+  </div>
+  <div class="accommodation__card">
+    <div class="accommodation__card-bg accommodation__card-bg--inn">
+      <!-- PHOTO SLOT: url('images/samsons-inn.jpg') center/cover no-repeat -->
+    </div>
+    <div class="accommodation__card-overlay"></div>
+    <div class="accommodation__card-content reveal">
+      <span class="accommodation__card-tier">Comfortable &amp; Affordable</span>
+      <h3 class="accommodation__card-name">Samsons Inn Lodge</h3>
+      <p class="accommodation__card-desc">Clean, comfortable, and excellent value. Located 3km from the resort gate with free parking, breakfast included, and a shuttle service.</p>
+      <div class="accommodation__card-features">
+        <span class="accommodation__feature">Breakfast Included</span>
+        <span class="accommodation__feature">Free Parking</span>
+        <span class="accommodation__feature">Shuttle Service</span>
+        <span class="accommodation__feature">3km from Resort</span>
+      </div>
+      <a href="accommodation.html" class="btn-outline-white">View Details <span class="arrow"></span></a>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<div class="gallery" id="gallery" aria-label="Photo gallery">
+  <div class="gallery__cell">
+    <div class="gallery__cell-bg g1"><!-- PHOTO SLOT: url('images/gallery-1.jpg') center/cover --></div>
+    <div class="gallery__cell-overlay"></div>
+  </div>
+  <div class="gallery__cell">
+    <div class="gallery__cell-bg g2"><!-- PHOTO SLOT: url('images/gallery-2.jpg') center/cover --></div>
+    <div class="gallery__cell-overlay"></div>
+  </div>
+  <div class="gallery__cell">
+    <div class="gallery__cell-bg g3"><!-- PHOTO SLOT: url('images/gallery-3.jpg') center/cover --></div>
+    <div class="gallery__cell-overlay"></div>
+  </div>
+  <div class="gallery__cell">
+    <div class="gallery__cell-bg g4"><!-- PHOTO SLOT: url('images/gallery-4.jpg') center/cover --></div>
+    <div class="gallery__cell-overlay"></div>
+  </div>
+  <div class="gallery__cta">
+    <div class="gallery__cta-inner reveal">
+      <h3 class="gallery__cta-title">See the Mountain in Every Season</h3>
+      <p class="gallery__cta-sub">From winter powder to summer wildflowers — Malam Jabba is spectacular year-round. Browse the full gallery for a closer look.</p>
+      <a href="gallery.html" class="btn-ink">View Full Gallery <span class="arrow"></span></a>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-strip" id="contact">
+  <div class="contact-strip__info">
+    <div class="section__label reveal">Get In Touch</div>
+    <h2 class="section__title reveal reveal--delay-1">Plan Your <em>Visit</em></h2>
+    <div style="height:2.5rem"></div>
+
+    <div class="contact-detail reveal reveal--delay-2">
+      <div class="contact-detail__icon">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div>
+        <div class="contact-detail__label">Location</div>
+        <div class="contact-detail__value">Malam Jabba, Swat District<br>KPK, Pakistan</div>
+      </div>
+    </div>
+
+    <div class="contact-detail reveal reveal--delay-2">
+      <div class="contact-detail__icon">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.45 2 2 0 0 1 3.59 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
+      </div>
+      <div>
+        <div class="contact-detail__label">Phone &amp; WhatsApp</div>
+        <div class="contact-detail__value"><a href="tel:+923266575444">+92 326 657 5444</a></div>
+      </div>
+    </div>
+
+    <div class="contact-detail reveal reveal--delay-2">
+      <div class="contact-detail__icon">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div>
+        <div class="contact-detail__label">Email</div>
+        <div class="contact-detail__value"><a href="mailto:hello@malamjabbaskiresort.com">hello@malamjabbaskiresort.com</a></div>
+      </div>
+    </div>
+
+    <div class="contact-detail reveal reveal--delay-3">
+      <div class="contact-detail__icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div>
+        <div class="contact-detail__label">Opening Hours</div>
+        <div class="contact-detail__value">
+          <div class="hours-grid">
+            <span class="day">Mon &ndash; Fri</span><span>09:00 &ndash; 17:00</span>
+            <span class="day">Saturday</span><span>09:00 &ndash; 20:00</span>
+            <span class="day">Sunday</span><span>09:00 &ndash; 17:00</span>
+            <span class="day">Holidays</span><span>Open all major holidays</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-strip__form-wrap">
+    <h3 style="font-family:var(--ff-display);font-size:1.5rem;font-weight:400;color:var(--ink);margin-bottom:0.4rem;">Send a Message</h3>
+    <p style="font-size:0.82rem;color:var(--steel);margin-bottom:1.75rem;">We typically respond within a few hours during business hours.</p>
+
+    <div class="form-row-half">
+      <div class="form-group">
+        <label class="form-label" for="cf-name">Full Name *</label>
+        <input class="form-control" type="text" id="cf-name" placeholder="Ahmad Khan" autocomplete="name">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="cf-phone">Phone / WhatsApp *</label>
+        <input class="form-control" type="tel" id="cf-phone" placeholder="+92 300 000 0000" autocomplete="tel">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="cf-email">Email Address</label>
+      <input class="form-control" type="email" id="cf-email" placeholder="you@example.com" autocomplete="email">
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="cf-subject">Subject</label>
+      <select class="form-control" id="cf-subject">
+        <option value="">Select a topic</option>
+        <option>General Enquiry</option>
+        <option>Group Booking (10+ people)</option>
+        <option>Corporate Event</option>
+        <option>Accommodation Enquiry</option>
+        <option>Media / Press</option>
+        <option>Feedback or Complaint</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="cf-message">Message *</label>
+      <textarea class="form-control form-control--textarea" id="cf-message" placeholder="How can we help you?"></textarea>
+    </div>
+    <button class="form-submit" onclick="submitContact()">Send Message</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer__grid">
+    <div>
+      <div class="footer__brand-name">Malam Jabba Ski Resort</div>
+      <p class="footer__brand-desc">Pakistan's premier mountain resort, established 1980. Nestled at 2,804 metres in the Swat Valley, KPK. Part of the Samsons Group of Companies.</p>
+      <div class="footer__social-row">
+        <a href="#" class="footer__social" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" fill="rgba(255,255,255,0.5)"/></svg>
+        </a>
+        <a href="#" class="footer__social" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="rgba(255,255,255,0.5)" stroke-width="2"/></svg>
+        </a>
+        <a href="https://wa.me/923266575444" class="footer__social" aria-label="WhatsApp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+    <div>
+      <div class="footer__col-title">Explore</div>
+      <ul class="footer__links">
+        <li><a href="about.html">About the Resort</a></li>
+        <li><a href="activities.html">Activities</a></li>
+        <li><a href="accommodation.html">Accommodation</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="shop.html">Buy Tickets</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__col-title">Plan Your Trip</div>
+      <ul class="footer__links">
+        <li><a href="contact.html">Getting Here</a></li>
+        <li><a href="contact.html">Group Bookings</a></li>
+        <li><a href="contact.html">Corporate Events</a></li>
+        <li><a href="recruitment.html">Careers</a></li>
+        <li><a href="csr.html">CSR Initiatives</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer__col-title">Contact</div>
+      <ul class="footer__links">
+        <li><a href="tel:+923266575444">+92 326 657 5444</a></li>
+        <li><a href="mailto:hello@malamjabbaskiresort.com">hello@malamjabbaskiresort.com</a></li>
+        <li><a href="https://wa.me/923266575444">WhatsApp</a></li>
+        <li><a href="contact.html">Swat District, KPK</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>&copy; 2026 Malam Jabba Ski Resort &mdash; Samsons Group of Companies</span>
+    <div class="footer__legal">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="refunds.html">Refund Policy</a>
+    </div>
+  </div>
+</footer>
+
+<!-- CART FAB -->
+<button class="cart-fab" id="cartFab" onclick="toggleCart()" aria-label="Open cart">
+  <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+  <span class="cart-badge" id="cartBadge">0</span>
+</button>
+
+<!-- CART OVERLAY + PANEL -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-panel" id="cartPanel" role="dialog" aria-modal="true" aria-label="Shopping cart">
+  <div class="cart-panel__header">
+    <div class="cart-panel__title">Your Cart</div>
+    <button class="cart-panel__close" onclick="toggleCart()" aria-label="Close cart">&times;</button>
+  </div>
+  <div class="cart-panel__body" id="cartBody">
+    <div class="cart-empty" id="cartEmpty">
+      <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span>Your cart is empty. Select activities above to get started.</span>
+    </div>
+  </div>
+  <div class="cart-panel__footer" id="cartFooter" style="display:none">
+    <div class="cart-checkout-fields">
+      <input class="form-control" type="text" id="ck-name" placeholder="Full Name *" autocomplete="name">
+      <input class="form-control" type="tel" id="ck-phone" placeholder="Phone / WhatsApp *" autocomplete="tel">
+      <input class="form-control" type="email" id="ck-email" placeholder="Email for ticket" autocomplete="email">
+      <input class="form-control" type="date" id="ck-date">
+    </div>
+    <div style="font-size:0.62rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--steel);margin-bottom:0.6rem;">Payment Method</div>
+    <div class="cart-payment-row">
+      <div class="cart-pay-opt is-selected" onclick="selPay(this,'JazzCash')" role="button" tabindex="0">
+        <div class="cart-pay-opt__logo">JazzCash</div>
+        <div class="cart-pay-opt__sub">Mobile Wallet</div>
+      </div>
+      <div class="cart-pay-opt" onclick="selPay(this,'EasyPaisa')" role="button" tabindex="0">
+        <div class="cart-pay-opt__logo">EasyPaisa</div>
+        <div class="cart-pay-opt__sub">Mobile Wallet</div>
+      </div>
+    </div>
+    <div class="cart-total-row">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-amount" id="cartTotal">PKR 0</span>
+    </div>
+    <button class="cart-checkout-btn" onclick="openPayModal()">Proceed to Payment</button>
+    <div class="cart-security">
+      <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      PCI-DSS certified payment gateways. Card data never stored here.
+    </div>
+  </div>
+</div>
+
+<!-- PAYMENT MODAL -->
+<div class="pay-overlay" id="payOverlay" role="dialog" aria-modal="true" aria-labelledby="payModalTitle">
+  <div class="pay-modal">
+    <button class="pay-modal__close" onclick="closePayModal()" aria-label="Close">&times;</button>
+    <div class="pay-modal__progress">
+      <div class="pay-modal__prog-step is-done" id="ps1"></div>
+      <div class="pay-modal__prog-step" id="ps2"></div>
+      <div class="pay-modal__prog-step" id="ps3"></div>
+    </div>
+
+    <!-- Step 1: Review -->
+    <div class="modal-step is-active" id="ms1">
+      <div class="modal-title" id="payModalTitle">Review Order</div>
+      <div class="modal-sub">Confirm your items and select a payment method.</div>
+      <div class="modal-summary" id="modalSummary"></div>
+      <div class="modal-pay-opts">
+        <div class="modal-pay-opt is-selected" onclick="selModalPay(this,'JazzCash')" role="button" tabindex="0">
+          <div class="modal-pay-opt__name">JazzCash</div>
+          <div class="modal-pay-opt__sub">Mobile Wallet</div>
+        </div>
+        <div class="modal-pay-opt" onclick="selModalPay(this,'EasyPaisa')" role="button" tabindex="0">
+          <div class="modal-pay-opt__name">EasyPaisa</div>
+          <div class="modal-pay-opt__sub">Mobile Wallet</div>
+        </div>
+      </div>
+      <div class="modal-err" id="merr1"></div>
+      <button class="modal-proceed" onclick="goStep(2)">Continue to Details</button>
+    </div>
+
+    <!-- Step 2: Details -->
+    <div class="modal-step" id="ms2">
+      <div class="modal-title">Your Details</div>
+      <div class="modal-sub">Your ticket confirmation will be sent to these contacts.</div>
+      <div class="form-group"><label class="form-label" for="mn">Full Name *</label><input class="form-control" type="text" id="mn" autocomplete="name"></div>
+      <div class="form-group"><label class="form-label" for="mp">Mobile Number *</label><input class="form-control" type="tel" id="mp" placeholder="03XX XXXXXXX" autocomplete="tel"></div>
+      <div class="form-group"><label class="form-label" for="me">Email Address</label><input class="form-control" type="email" id="me" autocomplete="email"></div>
+      <div class="form-group"><label class="form-label" for="md">Visit Date *</label><input class="form-control" type="date" id="md"></div>
+      <div class="modal-err" id="merr2"></div>
+      <button class="modal-proceed" onclick="goStep3()">Continue to Payment</button>
+      <button class="modal-back" onclick="goStep(1)">Back</button>
+    </div>
+
+    <!-- Step 3: Processing -->
+    <div class="modal-step" id="ms3">
+      <div class="modal-processing">
+        <div class="spinner"></div>
+        <div style="font-family:var(--ff-display);font-size:1.5rem;font-weight:400;color:var(--ink);margin-bottom:0.5rem;">Connecting to <span id="gwName">JazzCash</span></div>
+        <p style="font-size:0.82rem;color:var(--steel);line-height:1.7;">Redirecting you to the secure payment page.<br>Please do not close this window.</p>
+      </div>
+    </div>
+
+    <!-- Step 4: Success -->
+    <div class="modal-step" id="ms4">
+      <div class="modal-success">
+        <div class="success-check">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="success-title">Booking Confirmed</div>
+        <p class="success-sub" id="successMsg">Your tickets are confirmed. Confirmation has been sent to your phone and email. Please present your reference number at the resort entrance.</p>
+        <button class="modal-proceed" onclick="closePayModal()" style="margin-top:2rem;">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast" role="alert" aria-live="polite"></div>
+
+<script>
+// ============================================================
+// SECURITY
+// ============================================================
+function sanitise(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#x27;');}
+function validatePhone(p){return /^(\+92|0)?[3][0-9]{9}$/.test(p.replace(/\s/g,''));}
+function validateEmail(e){return!e||/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);}
+function validateName(n){return n&&String(n).trim().length>=2;}
+
+// ============================================================
+// PRICING DATA
+// ============================================================
+const PRICE_TABLE = [
+  {name:'Resort Entry',        wd:1200, we:1600, wd_p:1200, we_p:1600},
+  {name:'Chairlift',           wd:900,  we:1200, wd_p:1400, we_p:1900},
+  {name:'Fast Track Chairlift',wd:1800, we:2400, wd_p:1800, we_p:2400},
+  {name:'Zipline',             wd:2000, we:2800, wd_p:3200, we_p:4500},
+  {name:'Giant Swing',         wd:2000, we:2800, wd_p:2000, we_p:2800},
+  {name:'Sling Shot',          wd:5000, we:7000, wd_p:5000, we_p:7000},
+  {name:'Skiing / Snowboarding',wd:1400,we:1900, wd_p:1400, we_p:1900},
+  {name:'Hiking Trail',        wd:600,  we:800,  wd_p:600,  we_p:800},
+];
+
+const today=new Date();
+const _wd=today.getDay();
+const _isWE=(_wd===5||_wd===6); // Fri=5 Sat=6
+function isPeak(d){const m=d.getMonth()+1,day=d.getDate();return(m===12&&day>=15)||(m===1)||(m===2&&day<=28)||(m>=6&&m<=8);}
+const _isPeak=isPeak(today);
+
+// Build pricing grid
+(function buildPricingGrid(){
+  const grid=document.getElementById('pricingGrid');
+  if(!grid)return;
+  PRICE_TABLE.forEach(row=>{
+    const cells=[
+      {cls:'pricing__cell pricing__cell--label',txt:row.name},
+      {cls:'pricing__cell pricing__cell--price'+(_isWE?'':' is-today'),txt:'PKR '+row.wd.toLocaleString()},
+      {cls:'pricing__cell pricing__cell--price'+(_isWE?' is-today':''),txt:'PKR '+row.we.toLocaleString()},
+      {cls:'pricing__cell pricing__cell--price'+(_isPeak&&!_isWE?' is-today':''),txt:'PKR '+row.wd_p.toLocaleString()},
+      {cls:'pricing__cell pricing__cell--price'+(_isPeak&&_isWE?' is-today':''),txt:'PKR '+row.we_p.toLocaleString()},
+    ];
+    cells.forEach(c=>{const el=document.createElement('div');el.className=c.cls;el.textContent=c.txt;grid.appendChild(el);});
+  });
+  // Season indicator
+  const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const indicator=document.getElementById('seasonIndicatorText');
+  if(indicator){
+    const tier=_isWE?'Weekend':'Weekday';
+    const season=_isPeak?'Peak Season':'Off-Peak Season';
+    indicator.textContent=days[today.getDay()]+' '+today.getDate()+' '+months[today.getMonth()]+' — '+tier+', '+season+' pricing applies today.';
+  }
+})();
+
+// ============================================================
+// CART
+// ============================================================
+let cart=[];
+let selPayment='JazzCash';
+let selModalPayment='JazzCash';
+
+const ICON_MAP={
+  ski:'<svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:var(--steel);fill:none;stroke-width:1.5;stroke-linecap:round"><path d="M5 20l4-4 4-4 4-4 4-4"/><path d="M3 3l18 18"/></svg>',
+  lift:'<svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:var(--steel);fill:none;stroke-width:1.5;stroke-linecap:round"><rect x="3" y="8" width="18" height="10" rx="2"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>',
+  zip:'<svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:var(--steel);fill:none;stroke-width:1.5;stroke-linecap:round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>',
+  swing:'<svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:var(--steel);fill:none;stroke-width:1.5;stroke-linecap:round"><path d="M12 22V12"/><circle cx="12" cy="8" r="4"/><path d="M3 3l6 6M21 3l-6 6"/></svg>',
+  sling:'<svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:var(--steel);fill:none;stroke-width:1.5;stroke-linecap:round"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/><polygon points="9 21 15 12 21 21"/></svg>',
+  hike:'<svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:var(--steel);fill:none;stroke-width:1.5;stroke-linecap:round"><path d="M3 20l3-9 4 5 4-5 3 9"/><circle cx="12" cy="4" r="2"/></svg>',
+  pkg:'<svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:var(--steel);fill:none;stroke-width:1.5;stroke-linecap:round"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>',
+};
+
+function cartTotal(){return cart.reduce((s,i)=>s+i.price*i.qty,0);}
+function cartCount(){return cart.reduce((s,i)=>s+i.qty,0);}
+
+function renderCart(){
+  const body=document.getElementById('cartBody');
+  const footer=document.getElementById('cartFooter');
+  const empty=document.getElementById('cartEmpty');
+  const badge=document.getElementById('cartBadge');
+  const total=document.getElementById('cartTotal');
+  const n=cartCount();
+  badge.style.display=n>0?'flex':'none';
+  badge.textContent=n;
+  empty.style.display=n===0?'flex':'none';
+  footer.style.display=n>0?'block':'none';
+  body.querySelectorAll('.cart-line').forEach(e=>e.remove());
+  cart.forEach((item,idx)=>{
+    const d=document.createElement('div');
+    d.className='cart-line';
+    d.innerHTML=`<div class="cart-line__icon">${ICON_MAP[item.iconKey]||ICON_MAP.pkg}</div>
+      <div class="cart-line__info"><div class="cart-line__name">${sanitise(item.name)}</div><div class="cart-line__qty">x${item.qty} &times; PKR ${item.price.toLocaleString()}</div></div>
+      <span class="cart-line__price">PKR ${(item.price*item.qty).toLocaleString()}</span>
+      <span class="cart-line__remove" onclick="removeFromCart(${idx})" title="Remove" role="button" tabindex="0">&times;</span>`;
+    body.appendChild(d);
+  });
+  if(total) total.textContent='PKR '+cartTotal().toLocaleString();
+}
+
+function quickAdd(name,price,iconKey){
+  const ex=cart.find(i=>i.name===name);
+  if(ex){ex.qty++;}else{cart.push({name,price,iconKey,qty:1});}
+  renderCart();
+  showToast(sanitise(name)+' added to cart','success');
+  openCart();
+}
+function removeFromCart(idx){cart.splice(idx,1);renderCart();}
+function selPay(el,m){selPayment=m;document.querySelectorAll('.cart-pay-opt').forEach(p=>p.classList.remove('is-selected'));el.classList.add('is-selected');}
+function selModalPay(el,m){selModalPayment=m;document.querySelectorAll('.modal-pay-opt').forEach(p=>p.classList.remove('is-selected'));el.classList.add('is-selected');}
+function toggleCart(){document.getElementById('cartPanel').classList.toggle('is-open');document.getElementById('cartOverlay').classList.toggle('is-open');}
+function openCart(){document.getElementById('cartPanel').classList.add('is-open');document.getElementById('cartOverlay').classList.add('is-open');}
+
+// ============================================================
+// CHECKOUT / PAYMENT MODAL
+// ============================================================
+function openPayModal(){
+  if(!cart.length){showToast('Your cart is empty','error');return;}
+  const name=document.getElementById('ck-name').value.trim();
+  const phone=document.getElementById('ck-phone').value.trim();
+  if(!validateName(name)){showToast('Please enter your full name','error');return;}
+  if(!validatePhone(phone)){showToast('Please enter a valid Pakistani mobile number','error');return;}
+  document.getElementById('mn').value=name;
+  document.getElementById('mp').value=phone;
+  buildModalSummary();
+  toggleCart();
+  document.getElementById('payOverlay').classList.add('is-open');
+  goStep(1);
+}
+function closePayModal(){document.getElementById('payOverlay').classList.remove('is-open');}
+function buildModalSummary(){
+  let h='';
+  cart.forEach(i=>{h+=`<div class="modal-sum-row"><span>${sanitise(i.name)} &times;${i.qty}</span><span>PKR ${(i.price*i.qty).toLocaleString()}</span></div>`;});
+  h+=`<div class="modal-sum-row is-total"><span>Total</span><span>PKR ${cartTotal().toLocaleString()}</span></div>`;
+  document.getElementById('modalSummary').innerHTML=h;
+}
+function goStep(n){
+  [1,2,3,4].forEach(i=>{document.getElementById('ms'+i).classList.toggle('is-active',i===n);});
+  [1,2,3].forEach(i=>{document.getElementById('ps'+i).classList.toggle('is-done',i<=n);});
+}
+function goStep3(){
+  const name=document.getElementById('mn').value.trim();
+  const phone=document.getElementById('mp').value.trim();
+  const email=document.getElementById('me').value.trim();
+  const date=document.getElementById('md').value;
+  const err=document.getElementById('merr2');
+  if(!validateName(name)){err.textContent='Please enter your full name.';err.style.display='block';return;}
+  if(!validatePhone(phone)){err.textContent='Please enter a valid Pakistani mobile number (e.g. 03XX XXXXXXX).';err.style.display='block';return;}
+  if(email&&!validateEmail(email)){err.textContent='Please enter a valid email address.';err.style.display='block';return;}
+  if(!date){err.textContent='Please select your visit date.';err.style.display='block';return;}
+  err.style.display='none';
+  goStep(3);
+  document.getElementById('gwName').textContent=selModalPayment;
+  processPayment(name,phone,email,date);
+}
+function processPayment(name,phone,email,date){
+  /* ================================================================
+     PAYMENT INTEGRATION POINT
+     ================================================================
+     In production, replace setTimeout with:
+
+     const GAS_URL = 'https://script.google.com/macros/s/YOUR_ID/exec';
+     fetch(GAS_URL, {
+       method: 'POST',
+       headers: {'Content-Type': 'text/plain'},
+       body: JSON.stringify({
+         action: 'initiatePayment',
+         gateway: selModalPayment,
+         name, phone, email, visitDate: date,
+         isWeekend: _isWE, isPeak: _isPeak,
+         items: cart.map(i=>({name:i.name,qty:i.qty,price:i.price})),
+         totalPKR: cartTotal(),
+         notifyEmail: 'hello@malamjabbaskiresort.com',
+         ts: new Date().toISOString()
+       })
+     })
+     .then(r=>r.json())
+     .then(res=>{
+       if(res.ok && res.redirectUrl) window.location.href = res.redirectUrl;
+       else showToast('Payment error: '+res.error,'error');
+     });
+     ================================================================ */
+  setTimeout(()=>{
+    const ref='MJ'+Date.now().toString().slice(-8).toUpperCase();
+    document.getElementById('successMsg').textContent=
+      'Booking confirmed for '+sanitise(name)+' on '+date+'. Reference: '+ref+'. Confirmation sent to '+sanitise(phone)+'. Present this reference at the resort entrance.';
+    cart=[];
+    renderCart();
+    goStep(4);
+  },3000);
+}
+
+// ============================================================
+// CONTACT FORM
+// ============================================================
+function submitContact(){
+  const name=document.getElementById('cf-name').value.trim();
+  const phone=document.getElementById('cf-phone').value.trim();
+  const email=document.getElementById('cf-email').value.trim();
+  const subject=document.getElementById('cf-subject').value;
+  const msg=document.getElementById('cf-message').value.trim();
+  if(!validateName(name)){showToast('Please enter your full name','error');return;}
+  if(!validatePhone(phone)&&!validateEmail(email)){showToast('Please enter a valid phone or email','error');return;}
+  if(!subject){showToast('Please select a subject','error');return;}
+  if(msg.length<10){showToast('Please enter a message','error');return;}
+  // In production: POST to GAS endpoint
+  showToast('Message sent — we will be in touch shortly','success');
+  ['cf-name','cf-phone','cf-email','cf-message'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('cf-subject').value='';
+}
+
+// ============================================================
+// ACTIVITIES FILTER
+// ============================================================
+function filterActivities(season,btn){
+  document.querySelectorAll('.activity-card').forEach(el=>{
+    el.style.display=(season==='all'||el.dataset.season===season||el.dataset.season==='all')?'block':'none';
+  });
+  document.querySelectorAll('.activities__filter-btn').forEach(b=>b.classList.remove('is-active'));
+  if(btn) btn.classList.add('is-active');
+}
+
+// ============================================================
+// SEASON HERO TOGGLE
+// ============================================================
+function setSeason(s){
+  document.getElementById('btnWinter').classList.toggle('is-active',s==='winter');
+  document.getElementById('btnSummer').classList.toggle('is-active',s==='summer');
+  document.getElementById('btnWinter').setAttribute('aria-pressed',s==='winter');
+  document.getElementById('btnSummer').setAttribute('aria-pressed',s==='summer');
+  // In production: swap hero background image here
+  // document.querySelector('.hero__bg').style.backgroundImage = s==='winter'
+  //   ? "url('images/hero-winter.jpg')" : "url('images/hero-summer.jpg')";
+  filterActivities(s,null);
+}
+
+// ============================================================
+// NAVBAR SCROLL
+// ============================================================
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').classList.toggle('nav--scrolled',window.scrollY>60);
+},{passive:true});
+
+// ============================================================
+// MOBILE NAV
+// ============================================================
+document.getElementById('burgerBtn').addEventListener('click',function(){
+  const open=document.getElementById('navDrawer').classList.toggle('is-open');
+  this.classList.toggle('is-open',open);
+  this.setAttribute('aria-expanded',open);
+});
+document.querySelectorAll('.nav__drawer a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    document.getElementById('navDrawer').classList.remove('is-open');
+    document.getElementById('burgerBtn').classList.remove('is-open');
+  });
+});
+
+// ============================================================
+// SCROLL REVEAL
+// ============================================================
+(function initReveal(){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('is-visible');});
+  },{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+})();
+
+// ============================================================
+// TOAST
+// ============================================================
+let _toastTimer;
+function showToast(msg,type='success'){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.className='toast is-visible toast--'+type;
+  clearTimeout(_toastTimer);
+  _toastTimer=setTimeout(()=>t.classList.remove('is-visible'),3500);
+}
+
+// ============================================================
+// ESC KEY CLOSE
+// ============================================================
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    document.getElementById('payOverlay').classList.remove('is-open');
+    document.getElementById('cartPanel').classList.remove('is-open');
+    document.getElementById('cartOverlay').classList.remove('is-open');
+    document.getElementById('navDrawer').classList.remove('is-open');
+    document.getElementById('burgerBtn').classList.remove('is-open');
+  }
+});
+
+// ============================================================
+// MIN DATE ON DATE INPUTS
+// ============================================================
+(()=>{
+  const d=new Date().toISOString().split('T')[0];
+  document.querySelectorAll('input[type="date"]').forEach(el=>el.min=d);
+})();
+
+// ============================================================
+// KEYBOARD ACCESSIBILITY FOR ROLE=BUTTON DIVS
+// ============================================================
+document.querySelectorAll('[role="button"]').forEach(el=>{
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();el.click();}});
+});
+</script>
+</body>
+</html>
